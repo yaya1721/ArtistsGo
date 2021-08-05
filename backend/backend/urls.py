@@ -14,8 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
+from home import views
+
+router = routers.DefaultRouter()
+router.register(r'homes', views.HomeView, 'home')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
 ]
+
+
+#/homes/ - returns a list of all the Home items. CREATE and READ operations can be performed here.
+#/homes/id - returns a single Home item using the id primary key. UPDATE and DELETE operations can be performed here
