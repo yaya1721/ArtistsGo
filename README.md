@@ -1,5 +1,5 @@
 # ArtistGo
-Slip Program
+Semester Long Immersive Project @ NYUAD
 
 ### User Stories
 - [ ] 1. Users(designers) can network with others with similar interests with basic contact information listed.
@@ -15,8 +15,10 @@ Slip Program
    - [ ] g. Music
    - [ ] h. Dancing
    - [ ] i. Film  
-### Functions
+### Tasks
 - [ ] 1. Database
-- [ ] 2. Log in page
+- [ ] 2. Log-in page
 - [ ] 3. Add a project to collaborate with others
 - [ ] 4. Create project
+- [ ] 5. Ask to collaborate
+
