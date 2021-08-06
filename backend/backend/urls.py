@@ -19,7 +19,8 @@ from rest_framework import routers
 from home import views
 
 router = routers.DefaultRouter()
-router.register(r'homes', views.HomeView, 'home')
+router.register(r'home', views.PostView, 'post')
+router.register(r'authors', views.AuthorView, 'author')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
