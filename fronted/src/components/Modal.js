@@ -36,41 +36,70 @@ export default class CustomModal extends Component {
 
     return (
       <Modal isOpen={true} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Todo Item</ModalHeader>
+        <ModalHeader toggle={toggle}>New Work</ModalHeader>
         <ModalBody>
           <Form>
             <FormGroup>
-              <Label for="todo-title">Title</Label>
+              <Label for="post-create_date">Author</Label>
               <Input
                 type="text"
-                id="todo-title"
+                id="post-author"
+                name="author"
+                value={this.state.activeItem.author}
+                onChange={this.handleChange}
+              />
+            </FormGroup>
+             <FormGroup>
+              <Label for="post-create_date">Date</Label>
+              <Input
+                type="date"
+                id="post-create_date"
+                name="date"
+                value={this.state.activeItem.create_date}
+                onChange={this.handleChange}
+              />
+            </FormGroup>
+            <FormGroup> 
+              <Label for="post-create_date">Category</Label>
+              <Input
+                type="text"
+                id="post-category"
+                name="category"
+                value={this.state.activeItem.category}
+                onChange={this.handleChange}
+              />
+            </FormGroup>
+             <FormGroup>
+              <Label for="post-title">Title</Label>
+              <Input
+                type="text"
+                id="post-title"
                 name="title"
                 value={this.state.activeItem.title}
                 onChange={this.handleChange}
-                placeholder="Enter Todo Title"
+                placeholder="Enter work title"
               />
             </FormGroup>
             <FormGroup>
-              <Label for="todo-description">Description</Label>
+              <Label for="post-description">Description</Label>
               <Input
                 type="text"
-                id="todo-description"
+                id="post-description"
                 name="description"
                 value={this.state.activeItem.description}
                 onChange={this.handleChange}
-                placeholder="Enter Todo description"
+                placeholder="Enter work description"
               />
             </FormGroup>
-            <FormGroup check>
-              <Label check>
-                <Input
-                  type="checkbox"
-                  name="completed"
-                  checked={this.state.activeItem.completed}
-                  onChange={this.handleChange}
-                />
-                Completed
-              </Label>
+             <FormGroup>
+              <Label for="post-description">Content</Label>
+              <Input
+                type="file"
+                id="post-content"
+                name="content"
+                value={this.state.activeItem.content}
+                onChange={this.handleChange}
+              />
             </FormGroup>
           </Form>
         </ModalBody>

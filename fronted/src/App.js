@@ -11,11 +11,11 @@ class App extends Component {
       modal: false,
       activeItem: {
         author: "",
-        create_date: "",
+        create_date: null,
         category: "",
         title: "",
         description: "",
-        content: "",   
+        content: null,   
       },
     };
   }
@@ -26,7 +26,7 @@ class App extends Component {
 
   refreshList = () => {
     axios
-      .get("/api/homes/")
+      .get("/api/home/")
       .then((res) => this.setState({ postList: res.data }))
       .catch((err) => console.log(err));
   };
@@ -40,23 +40,29 @@ class App extends Component {
 
     if (item.id) {
       axios
-        .put(`/api/homes/${item.id}/`, item)
+        .put(`/api/home/${item.id}/`, item)
         .then((res) => this.refreshList());
       return;
     }
     axios
-      .post("/api/homes/", item)
+      .post("/api/home/", item)
       .then((res) => this.refreshList());
   };
 
   handleDelete = (item) => {
     axios
-      .delete(`/api/homes/${item.id}/`)
+      .delete(`/api/home/${item.id}/`)
       .then((res) => this.refreshList());
   };
 
   createItem = () => {
-    const item = { title: "", description: "", completed: false };
+    const item = { 
+        author: "",
+        create_date: null,
+        category: "",
+        title: "",
+        description: "",
+        content: null, };
 
     this.setState({ activeItem: item, modal: !this.state.modal });
   };
@@ -65,36 +71,36 @@ class App extends Component {
     this.setState({ activeItem: item, modal: !this.state.modal });
   };
 
-  displayCompleted = (status) => {
-    if (status) {
-      return this.setState({ viewCompleted: true });
-    }
+  // displayCompleted = (status) => {
+  //   if (status) {
+  //     return this.setState({ viewCompleted: true });
+  //   }
 
-    return this.setState({ viewCompleted: false });
-  };
+  //   return this.setState({ viewCompleted: false });
+  // };
 
-  renderTabList = () => {
-    return (
-      <div className="nav nav-tabs">
-        <span
-          onClick={() => this.displayCompleted(true)}
-          className={this.state.viewCompleted ? "nav-link active" : "nav-link"}
-        >
-          Complete
-        </span>
-        <span
-          onClick={() => this.displayCompleted(false)}
-          className={this.state.viewCompleted ? "nav-link" : "nav-link active"}
-        >
-          Incomplete
-        </span>
-      </div>
-    );
-  };
+  // renderTabList = () => {
+  //   return (
+  //     <div className="nav nav-tabs">
+  //       <span
+  //         onClick={() => this.displayCompleted(true)}
+  //         className={this.state.viewCompleted ? "nav-link active" : "nav-link"}
+  //       >
+  //         Complete
+  //       </span>
+  //       <span
+  //         onClick={() => this.displayCompleted(false)}
+  //         className={this.state.viewCompleted ? "nav-link" : "nav-link active"}
+  //       >
+  //         Incomplete
+  //       </span>
+  //     </div>
+  //   );
+  // };
 
   renderItems = () => {
     const { viewCompleted } = this.state;
-    const newItems = this.state.homeList.filter(
+    const newItems = this.state.postList.filter(
       (item) => item.completed === viewCompleted
     );
 
@@ -141,10 +147,10 @@ class App extends Component {
                   className="btn btn-primary"
                   onClick={this.createItem}
                 >
-                  Add task
+                  Add work
                 </button>
               </div>
-              {this.renderTabList()}
+             
               <ul className="list-group list-group-flush border-top-0">
                 {this.renderItems()}
               </ul>
