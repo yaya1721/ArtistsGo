@@ -15,8 +15,10 @@ Slip Program
    - [ ] g. Music
    - [ ] h. Dancing
    - [ ] i. Film  
-### Functions
+### Tasks
 - [ ] 1. Database
-- [ ] 2. Log in page
+- [ ] 2. Log-in page
 - [ ] 3. Add a project to collaborate with others
 - [ ] 4. Create project
+- [ ] 5. Ask to collaborate
+
