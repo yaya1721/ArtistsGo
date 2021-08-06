@@ -1,5 +1,5 @@
 # ArtistGo
-Slip Program
+Semester Long Immersive Project @ NYUAD
 
 ### User Stories
 - [ ] 1. Users(designers) can network with others with similar interests with basic contact information listed.
